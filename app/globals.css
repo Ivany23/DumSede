@@ -1,0 +1,209 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-outfit: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  --background: #FFFFFF;
+  --foreground: #0B1B3A;
+
+  --color-primary: #0066FF;
+  --color-primary-hover: #0052CC;
+  --color-primary-dark: #003D99;
+
+  --surface: #FFFFFF;
+  --surface-soft: #F0F7FF;
+  --surface-tint: #EAF1FF;
+  --surface-deep: #DCEBFF;
+
+  --color-text-primary: #0B1B3A;
+  --color-text-secondary: #475569;
+  --color-text-light: #64748B;
+
+  --color-success: #22C55E;
+  --color-error: #FF4444;
+  --color-warning: #FF9800;
+  --color-info: #0066FF;
+  --color-muted: #64748B;
+
+  --color-mercearia: #7CB342;
+  --color-bebidas: #0066FF;
+  --color-laticinios: #FF8C00;
+  --color-limpeza: #06B6D4;
+  --color-snacks: #DC2626;
+  --color-infantil: #A855F7;
+
+  --color-sky: #3B82F6;
+  --color-sky-light: #93C5FD;
+  --color-sky-soft: #BFDBFE;
+
+  --glass-background: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 102, 255, 0.14);
+  --glass-border-hover: rgba(0, 102, 255, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: initial;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit);
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EAF1FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0066FF;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 102, 255, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0052CC;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 102, 255, 0.4);
+  box-shadow: 0 20px 45px -12px rgba(0, 102, 255, 0.3), 0 0 24px rgba(0, 102, 255, 0.15);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.09);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #60A5FA 0%, #0066FF 45%, #003D99 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-emerald-gradient {
+  background: linear-gradient(135deg, #A7F3D0 0%, #34D399 50%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-silver-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 60%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.perspective-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.card-3d-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.shimmer-badge {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 102, 255, 0.1) 0%,
+    rgba(0, 102, 255, 0.3) 50%,
+    rgba(0, 102, 255, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+.bg-ambient-emerald {
+  background: radial-gradient(circle at 50% 30%, rgba(0, 102, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.bg-ambient-gold {
+  background: radial-gradient(circle at 50% 50%, rgba(147, 197, 253, 0.35) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+::selection {
+  background: #0066FF;
+  color: #FFFFFF;
+}
+
+/* Hide Next.js Development Indicator / Toast / N badge completely */
+nextjs-portal,
+#nextjs-portal,
+[data-nextjs-dev-overlay-portal],
+[data-nextjs-toast],
+[data-nextjs-dev-indicator],
+[data-next-badge],
+.nextjs-toast-errors-parent,
+#__next-build-watcher {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Seamless Studio White Product Images - Eliminates screenshot/cutout lines */
+.product-image-studio {
+  background-color: #FFFFFF !important;
+  mix-blend-mode: multiply;
+}
