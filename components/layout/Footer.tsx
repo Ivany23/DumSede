@@ -84,8 +84,8 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/galeria" className="hover:text-dum-primary transition-colors flex items-center justify-between group">
-                  <span>Galeria do Armazém</span>
+                <Link href="/localizacao" className="hover:text-dum-primary transition-colors flex items-center justify-between group">
+                  <span>Onde Estamos</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-dum-primary" />
                 </Link>
               </li>

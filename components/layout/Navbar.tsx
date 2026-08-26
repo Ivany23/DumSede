@@ -15,7 +15,6 @@ const navLinks = [
   { label: 'Marcas', href: '/marcas' },
   { label: 'Ofertas & Destaques', href: '/ofertas' },
   { label: 'Sobre Nós', href: '/sobre' },
-  { label: 'Galeria', href: '/galeria' },
   { label: 'Localização', href: '/localizacao' },
   { label: 'Contacto', href: '/contacto' },
 ];
