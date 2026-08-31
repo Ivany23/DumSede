@@ -1,7 +1,6 @@
 import React from 'react';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 import { MagneticButton } from '@/components/ui/MagneticButton';
-import { GlassCard3D } from '@/components/cards/GlassCard3D';
 import {
   Target,
   Eye,
@@ -10,7 +9,6 @@ import {
   Users,
   Store,
   Layers,
-  Sparkles,
   Building2,
   CheckCircle2,
 } from 'lucide-react';
@@ -47,7 +45,7 @@ export default function SobrePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] pt-32 pb-24 px-6 sm:px-8">
+    <div className="min-h-screen bg-white pt-28 pb-24 px-6 sm:px-8">
       <div className="max-w-7xl mx-auto">
         {/* 1. HERO STORYTELLING */}
         <SectionTitle
@@ -57,68 +55,63 @@ export default function SobrePage() {
         />
 
         {/* Narrative & Brand Showcase Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-24">
           <div className="lg:col-span-6">
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B3A] mb-6 leading-snug">
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#0F172A] mb-5 leading-snug">
               Proporcionamos uma experiência organizada, moderna e de confiança para famílias e empresas.
             </h3>
             
-            <p className="text-base text-[#475569] font-light leading-relaxed mb-6">
+            <p className="text-base text-slate-600 font-light leading-relaxed mb-5">
               Nascemos da convicção de que fazer compras presenciais não deve ser uma tarefa monótona ou caótica, mas sim uma experiência agradável num ambiente higienizado, visualmente inspirador e com diversidade genuína.
             </p>
 
-            <p className="text-base text-[#475569] font-light leading-relaxed mb-8">
+            <p className="text-base text-slate-600 font-light leading-relaxed mb-6">
               No armazém DUM, cada corredor é planeado para oferecer circulação fluida, iluminação acolhedora e uma curadoria de produtos alimentares, bebidas, laticínios, congelados, higiene e limpeza que atendem desde a rotina doméstica aos maiores abastecimentos institucionais.
             </p>
 
-            <div className="p-6 rounded-2xl bg-[#EAF1FF] border border-[#0052CC]/30">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0066FF] block mb-2">
+            <div className="p-5 rounded-xl bg-blue-50/80 border border-blue-200">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#1D4ED8] block mb-1.5">
                 O Nosso Diferencial
               </span>
-              <p className="text-sm text-[#0B1B3A] font-medium">
+              <p className="text-sm text-slate-800 font-medium leading-relaxed">
                 O nosso compromisso é com o atendimento humano, a inspeção visual dos produtos e a garantia de que sai da nossa loja com exatamente o que procurava.
               </p>
             </div>
           </div>
 
           <div className="lg:col-span-6">
-            <div className="relative aspect-4/3 w-full rounded-3xl overflow-hidden glass-panel border border-[#0052CC]/30 bg-gradient-to-br from-[#EAF1FF] via-[#F4F8FF] to-[#FFFFFF] p-8 sm:p-10 flex flex-col justify-between shadow-2xl">
-              {/* Geometric Glow Elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#0052CC]/15 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-56 h-56 bg-[#0066FF]/50 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#0052CC08_1px,transparent_1px),linear-gradient(to_bottom,#0052CC08_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-30" />
-
+            <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 sm:p-10 flex flex-col justify-between shadow-2xs">
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-white/70 border border-[#0B1B3A]/10 flex items-center justify-center text-[#0066FF] mb-6 shadow-xl">
-                  <Building2 className="w-8 h-8" />
+                <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-[#1D4ED8] mb-5 shadow-2xs">
+                  <Building2 className="w-6 h-6" />
                 </div>
-                <span className="text-xs text-[#0066FF] font-semibold tracking-widest uppercase block mb-1">
+                <span className="text-xs text-[#1D4ED8] font-bold tracking-widest uppercase block mb-1">
                   Infraestrutura DUM Sociedade Lda
                 </span>
-                <h4 className="text-2xl font-bold text-[#0B1B3A] mb-2">
+                <h4 className="text-xl sm:text-2xl font-bold text-[#0F172A] mb-2">
                   Excelência & Conforto no Ponto de Venda
                 </h4>
-                <p className="text-xs sm:text-sm text-[#475569] font-light leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
                   Espaço amplo, segurança garantida, controlo de temperatura rigoroso e gôndolas perfeitamente setorizadas.
                 </p>
               </div>
 
-              <div className="relative z-10 grid grid-cols-2 gap-3 pt-6 border-t border-[#0B1B3A]/10 mt-6">
-                <div className="flex items-center gap-2 text-xs text-[#0066FF]">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span className="text-[#0B1B3A] font-medium">Climatização Contínua</span>
+              <div className="relative z-10 grid grid-cols-2 gap-3 pt-5 border-t border-slate-200 mt-6">
+                <div className="flex items-center gap-2 text-xs">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span className="text-slate-800 font-medium">Climatização Contínua</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-[#0066FF]">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span className="text-[#0B1B3A] font-medium">Estacionamento Acessível</span>
+                <div className="flex items-center gap-2 text-xs">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span className="text-slate-800 font-medium">Estacionamento Acessível</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-[#0066FF]">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span className="text-[#0B1B3A] font-medium">Inspeção de Lotes</span>
+                <div className="flex items-center gap-2 text-xs">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span className="text-slate-800 font-medium">Inspeção de Lotes</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-[#0066FF]">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span className="text-[#0B1B3A] font-medium">Atendimento Dedicado</span>
+                <div className="flex items-center gap-2 text-xs">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span className="text-slate-800 font-medium">Atendimento Dedicado</span>
                 </div>
               </div>
             </div>
@@ -126,102 +119,94 @@ export default function SobrePage() {
         </div>
 
         {/* 2. NÚMEROS DE IMPACTO */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-28">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           {metrics.map((m, i) => (
-            <GlassCard3D key={i} className="h-full" intensity={8}>
-              <div className="p-8 text-center h-full flex flex-col justify-center">
-                <span className="text-4xl sm:text-5xl font-extrabold font-serif text-gold-gradient mb-2 block">
-                  {m.value}
-                </span>
-                <span className="text-sm font-bold text-[#0B1B3A] uppercase tracking-wider mb-2 block">
-                  {m.label}
-                </span>
-                <span className="text-xs text-[#64748B] font-light">
-                  {m.desc}
-                </span>
-              </div>
-            </GlassCard3D>
+            <div key={i} className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs text-center h-full flex flex-col justify-center">
+              <span className="text-4xl font-extrabold font-serif text-[#1D4ED8] mb-1.5 block">
+                {m.value}
+              </span>
+              <span className="text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1 block">
+                {m.label}
+              </span>
+              <span className="text-xs text-slate-500 font-light">
+                {m.desc}
+              </span>
+            </div>
           ))}
         </div>
 
         {/* 3. MISSÃO & VISÃO */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-28">
-          <GlassCard3D className="h-full" intensity={12}>
-            <div className="p-8 md:p-10 h-full flex flex-col justify-between">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-white/70 border border-[#0B1B3A]/10 flex items-center justify-center text-[#0066FF] mb-6 shadow-lg">
-                  <Target className="w-7 h-7" />
-                </div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#0066FF] block mb-2">
-                  Propósito
-                </span>
-                <h3 className="text-2xl font-bold text-[#0B1B3A] mb-4">
-                  A Nossa Missão
-                </h3>
-                <p className="text-sm sm:text-base text-[#64748B] font-light leading-relaxed">
-                  Oferecer à comunidade e às empresas uma experiência física de compra acolhedora, com máxima variedade de produtos essenciais e de qualidade superior, garantindo sempre fiabilidade, bom atendimento e frescura.
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+          <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-2xs h-full flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-[#1D4ED8] mb-5 shadow-2xs">
+                <Target className="w-6 h-6" />
               </div>
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#1D4ED8] block mb-1.5">
+                Propósito
+              </span>
+              <h3 className="text-xl font-bold text-[#0F172A] mb-3">
+                A Nossa Missão
+              </h3>
+              <p className="text-sm text-slate-600 font-light leading-relaxed">
+                Oferecer à comunidade e às empresas uma experiência física de compra acolhedora, com máxima variedade de produtos essenciais e de qualidade superior, garantindo sempre fiabilidade, bom atendimento e frescura.
+              </p>
             </div>
-          </GlassCard3D>
+          </div>
 
-          <GlassCard3D className="h-full" intensity={12}>
-            <div className="p-8 md:p-10 h-full flex flex-col justify-between">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-white/70 border border-[#0B1B3A]/10 flex items-center justify-center text-[#0066FF] mb-6 shadow-lg">
-                  <Eye className="w-7 h-7" />
-                </div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#0066FF] block mb-2">
-                  Futuro
-                </span>
-                <h3 className="text-2xl font-bold text-[#0B1B3A] mb-4">
-                  A Nossa Visão
-                </h3>
-                <p className="text-sm sm:text-base text-[#64748B] font-light leading-relaxed">
-                  Ser o armazém de referência e primeira escolha em compras presenciais, reconhecido pelo padrão cinematográfico de organização, respeito pelo cliente e solidez institucional.
-                </p>
+          <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-2xs h-full flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-[#1D4ED8] mb-5 shadow-2xs">
+                <Eye className="w-6 h-6" />
               </div>
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#1D4ED8] block mb-1.5">
+                Futuro
+              </span>
+              <h3 className="text-xl font-bold text-[#0F172A] mb-3">
+                A Nossa Visão
+              </h3>
+              <p className="text-sm text-slate-600 font-light leading-relaxed">
+                Ser o armazém de referência e primeira escolha em compras presenciais, reconhecido pelo padrão de excelência, organização, respeito pelo cliente e solidez institucional.
+              </p>
             </div>
-          </GlassCard3D>
+          </div>
         </div>
 
         {/* 4. VALORES FUNDAMENTAIS */}
         <div className="mb-24">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#0066FF] block mb-2">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#1D4ED8] block mb-1.5">
               Pilares
             </span>
-            <h3 className="text-3xl font-bold text-[#0B1B3A]">
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#0F172A]">
               Os Nossos Valores
             </h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, i) => (
-              <GlassCard3D key={i} className="h-full" intensity={10}>
-                <div className="p-6 h-full flex flex-col justify-between">
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-white/70 border border-[#0B1B3A]/10 flex items-center justify-center text-[#0066FF] mb-4">
-                      {v.icon}
-                    </div>
-                    <h4 className="text-base font-bold text-[#0B1B3A] mb-2">{v.title}</h4>
-                    <p className="text-xs text-[#64748B] font-light leading-relaxed">
-                      {v.desc}
-                    </p>
+              <div key={i} className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs h-full flex flex-col justify-between">
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-[#1D4ED8] mb-4">
+                    {v.icon}
                   </div>
+                  <h4 className="text-sm font-bold text-[#0F172A] mb-1.5">{v.title}</h4>
+                  <p className="text-xs text-slate-600 font-light leading-relaxed">
+                    {v.desc}
+                  </p>
                 </div>
-              </GlassCard3D>
+              </div>
             ))}
           </div>
         </div>
 
         {/* 5. CONVITE À VISITA */}
-        <div className="p-10 rounded-3xl glass-panel border border-[#0052CC]/30 bg-[#F0F7FF] text-center max-w-3xl mx-auto">
-          <Store className="w-10 h-10 text-[#0066FF] mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-[#0B1B3A] mb-3">
+        <div className="p-10 rounded-2xl border border-slate-200 bg-slate-50 text-center max-w-3xl mx-auto shadow-2xs">
+          <Store className="w-10 h-10 text-[#1D4ED8] mx-auto mb-3" />
+          <h3 className="text-2xl font-bold text-[#0F172A] mb-2">
             Venha Conhecer a Nossa Equipa
           </h3>
-          <p className="text-sm text-[#475569] font-light max-w-xl mx-auto mb-8">
+          <p className="text-sm text-slate-600 font-light max-w-xl mx-auto mb-6 leading-relaxed">
             Estamos preparados para o receber de braços abertos. Visite as nossas instalações e descubra a diferença de comprar na DUM.
           </p>
           <MagneticButton href="/localizacao" variant="primary" size="lg">

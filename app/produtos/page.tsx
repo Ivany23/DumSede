@@ -236,7 +236,7 @@ function ProdutosCatalogContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] pt-32 pb-24 px-6 sm:px-8">
+    <div className="min-h-screen bg-white pt-28 pb-24 px-6 sm:px-8">
       <div className="max-w-7xl mx-auto">
         <SectionTitle
           badge="Catálogo Real DUM"
@@ -244,7 +244,7 @@ function ProdutosCatalogContent() {
           subtitle="Explore o catálogo completo disponível no Armazém DUM. Pesquise por nome, marca ou categoria e encontre exatamente o que procura."
         />
 
-        <div className="mb-8 p-6 rounded-3xl border border-[#0052CC]/20 bg-gradient-to-r from-[#F0F7FF] to-[#F8FAFF] shadow-sm">
+        <div className="mb-8 p-6 rounded-2xl border border-slate-200 bg-slate-50/70 shadow-2xs">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="md:col-span-2">
               <SearchBar
@@ -259,33 +259,33 @@ function ProdutosCatalogContent() {
               <button
                 type="button"
                 onClick={() => setShowBrandDropdown(!showBrandDropdown)}
-                className="w-full flex items-center justify-between px-4 py-3.5 bg-white border border-[#0052CC]/25 rounded-2xl text-sm text-[#0B1B3A] focus:outline-none focus:border-[#0066FF] hover:border-[#0066FF] shadow-2xs transition-all"
+                className="w-full flex items-center justify-between px-4 py-3.5 bg-white border border-slate-200 rounded-xl text-sm text-[#0F172A] focus:outline-none focus:border-[#1D4ED8] hover:border-slate-300 shadow-2xs transition-all"
               >
                 <div className="flex items-center gap-2 truncate">
-                  <Tag className="w-4 h-4 text-[#0066FF] flex-shrink-0" />
-                  <span className={selectedBrand === 'todas' ? 'text-[#94A3B8]' : 'text-[#0B1B3A] font-bold'}>
+                  <Tag className="w-4 h-4 text-[#1D4ED8] flex-shrink-0" />
+                  <span className={selectedBrand === 'todas' ? 'text-slate-500' : 'text-[#0F172A] font-bold'}>
                     {selectedBrand === 'todas' ? 'Filtrar por Marca' : selectedBrand}
                   </span>
                 </div>
-                <ChevronDown className={`w-4 h-4 text-[#0066FF] transition-transform duration-200 ${showBrandDropdown ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-4 h-4 text-[#1D4ED8] transition-transform duration-200 ${showBrandDropdown ? 'rotate-180' : ''}`} />
               </button>
 
               {showBrandDropdown && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#0052CC]/20 rounded-2xl shadow-2xl z-50 max-h-72 overflow-y-auto p-1.5 animate-in fade-in zoom-in-95 duration-150">
+                <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-200 rounded-xl shadow-xl z-50 max-h-72 overflow-y-auto p-1.5 animate-in fade-in zoom-in-95 duration-150">
                   <button
                     type="button"
                     onClick={() => handleBrandSelect('todas')}
-                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm transition-colors ${
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
                       selectedBrand === 'todas'
-                        ? 'text-[#0066FF] font-bold bg-[#EAF1FF]'
-                        : 'text-[#0B1B3A] hover:bg-[#F0F7FF]'
+                        ? 'text-[#1D4ED8] font-bold bg-blue-50'
+                        : 'text-[#0F172A] hover:bg-slate-50'
                     }`}
                   >
                     <span>Todas as Marcas ({products.length} itens)</span>
-                    {selectedBrand === 'todas' && <Check className="w-4 h-4 text-[#0066FF]" />}
+                    {selectedBrand === 'todas' && <Check className="w-4 h-4 text-[#1D4ED8]" />}
                   </button>
 
-                  <div className="h-px bg-gray-100 my-1" />
+                  <div className="h-px bg-slate-100 my-1" />
 
                   {availableBrands.map((brand) => {
                     const brandCount = products.filter(
@@ -296,14 +296,14 @@ function ProdutosCatalogContent() {
                         key={brand}
                         type="button"
                         onClick={() => handleBrandSelect(brand)}
-                        className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm transition-colors ${
+                        className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
                           selectedBrand === brand
-                            ? 'text-[#0066FF] font-bold bg-[#EAF1FF]'
-                            : 'text-[#0B1B3A] hover:bg-[#F0F7FF]'
+                            ? 'text-[#1D4ED8] font-bold bg-blue-50'
+                            : 'text-[#0F172A] hover:bg-slate-50'
                         }`}
                       >
                         <span className="truncate">{brand}</span>
-                        <span className="text-xs text-[#64748B] ml-2">({brandCount})</span>
+                        <span className="text-xs text-slate-400 ml-2">({brandCount})</span>
                       </button>
                     );
                   })}
@@ -313,18 +313,18 @@ function ProdutosCatalogContent() {
           </div>
 
           {hasActiveFilters && (
-            <div className="mt-4 pt-4 border-t border-[#0B1B3A]/10 flex flex-wrap items-center justify-between gap-3">
+            <div className="mt-4 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-xs text-[#64748B] font-medium">
-                  Resultados: <strong className="text-[#0B1B3A] text-sm">{filteredProducts.length}</strong> produto{filteredProducts.length !== 1 ? 's' : ''}
+                <span className="text-xs text-slate-500 font-medium">
+                  Resultados: <strong className="text-[#0F172A] text-sm">{filteredProducts.length}</strong> produto{filteredProducts.length !== 1 ? 's' : ''}
                 </span>
 
                 {searchTerm && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0066FF]/10 text-[#0066FF] text-xs font-bold border border-[#0066FF]/20 shadow-2xs">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[#1D4ED8] text-xs font-bold border border-blue-200 shadow-2xs">
                     Termo: &ldquo;{searchTerm}&rdquo;
                     <button
                       onClick={() => handleSearchChange('')}
-                      className="p-0.5 rounded-full hover:bg-[#0066FF]/20 transition-colors"
+                      className="p-0.5 rounded-full hover:bg-blue-100 transition-colors"
                       title="Remover termo"
                     >
                       <X className="w-3 h-3" />
@@ -337,7 +337,7 @@ function ProdutosCatalogContent() {
                     Marca: {selectedBrand}
                     <button
                       onClick={() => handleBrandSelect('todas')}
-                      className="p-0.5 rounded-full hover:bg-amber-200 transition-colors"
+                      className="p-0.5 rounded-full hover:bg-amber-100 transition-colors"
                       title="Remover marca"
                     >
                       <X className="w-3 h-3" />
@@ -350,7 +350,7 @@ function ProdutosCatalogContent() {
                     Categoria: {categories.find((c) => c.slug === selectedCategory)?.name.split(' &')[0]}
                     <button
                       onClick={() => handleCategorySelect('todas')}
-                      className="p-0.5 rounded-full hover:bg-emerald-200 transition-colors"
+                      className="p-0.5 rounded-full hover:bg-emerald-100 transition-colors"
                       title="Remover categoria"
                     >
                       <X className="w-3 h-3" />
@@ -362,7 +362,7 @@ function ProdutosCatalogContent() {
               <button
                 type="button"
                 onClick={handleResetFilters}
-                className="flex items-center gap-1.5 text-xs text-[#0066FF] hover:text-[#0052CC] font-bold uppercase tracking-wider transition-colors"
+                className="flex items-center gap-1.5 text-xs text-[#1D4ED8] hover:text-[#1E40AF] font-bold uppercase tracking-wider transition-colors"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 Limpar Filtros
@@ -375,15 +375,15 @@ function ProdutosCatalogContent() {
           <button
             type="button"
             onClick={() => handleCategorySelect('todas')}
-            className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-all duration-200 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider border transition-all duration-200 ${
               selectedCategory === 'todas'
-                ? 'bg-[#0066FF] text-white border-[#0066FF] shadow-lg shadow-[#0066FF]/25 scale-105'
-                : 'bg-white text-[#0B1B3A] border-[#0B1B3A]/15 hover:border-[#0066FF]/50 hover:text-[#0066FF] shadow-2xs'
+                ? 'bg-[#1D4ED8] text-white border-[#1D4ED8] shadow-sm'
+                : 'bg-white text-[#0F172A] border-slate-200 hover:border-blue-300 hover:text-[#1D4ED8] shadow-2xs'
             }`}
           >
             <SlidersHorizontal className="w-3.5 h-3.5" />
             Todas as Categorias
-            <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${selectedCategory === 'todas' ? 'bg-white/20 text-white' : 'bg-gray-100 text-[#64748B]'}`}>
+            <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${selectedCategory === 'todas' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'}`}>
               {products.length}
             </span>
           </button>
@@ -398,15 +398,15 @@ function ProdutosCatalogContent() {
                 key={cat.id}
                 type="button"
                 onClick={() => handleCategorySelect(cat.slug)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold border transition-all duration-200 ${
+                className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-bold border transition-all duration-200 ${
                   isSelected
-                    ? 'bg-[#0066FF] text-white border-[#0066FF] shadow-lg shadow-[#0066FF]/25 scale-105'
-                    : 'bg-white text-[#0B1B3A] border-[#0B1B3A]/15 hover:border-[#0066FF]/50 hover:text-[#0066FF] shadow-2xs'
+                    ? 'bg-[#1D4ED8] text-white border-[#1D4ED8] shadow-sm'
+                    : 'bg-white text-[#0F172A] border-slate-200 hover:border-blue-300 hover:text-[#1D4ED8] shadow-2xs'
                 }`}
               >
                 <span>{categoryEmojis[cat.slug] || '📦'}</span>
                 <span>{cat.name.split(' &')[0]}</span>
-                <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-white/20 text-white' : 'bg-gray-100 text-[#64748B]'}`}>
+                <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'}`}>
                   {count}
                 </span>
               </button>
@@ -415,19 +415,19 @@ function ProdutosCatalogContent() {
         </div>
 
         {selectedCategory !== 'todas' && (
-          <div className="mb-8 p-5 rounded-2xl bg-[#F0F7FF] border border-[#0052CC]/15 flex items-center justify-between">
+          <div className="mb-8 p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="text-3xl">{categoryEmojis[selectedCategory] || '📦'}</span>
+              <span className="text-2xl">{categoryEmojis[selectedCategory] || '📦'}</span>
               <div>
-                <h2 className="text-lg font-bold text-[#0B1B3A]">
+                <h2 className="text-base font-bold text-[#0F172A]">
                   {categories.find((c) => c.slug === selectedCategory)?.name}
                 </h2>
-                <p className="text-xs text-[#64748B]">
+                <p className="text-xs text-slate-500">
                   {categories.find((c) => c.slug === selectedCategory)?.description}
                 </p>
               </div>
             </div>
-            <span className="text-xs font-bold text-[#0066FF] bg-white px-3 py-1.5 rounded-xl border border-[#0052CC]/15">
+            <span className="text-xs font-bold text-[#1D4ED8] bg-white px-3 py-1 rounded-lg border border-slate-200">
               {filteredProducts.length} Produtos
             </span>
           </div>
@@ -437,9 +437,9 @@ function ProdutosCatalogContent() {
           <>
             {featuredCount > 0 && selectedCategory === 'todas' && !searchTerm && selectedBrand === 'todas' && (
               <div className="mb-6 flex items-center gap-2 px-1">
-                <Sparkles className="w-4 h-4 text-amber-500 fill-amber-400" />
-                <span className="text-xs text-[#64748B]">
-                  <strong className="text-[#0B1B3A]">{featuredCount} produtos em destaque</strong> seleccionados para si no Armazém DUM
+                <Sparkles className="w-4 h-4 text-amber-600 fill-amber-500" />
+                <span className="text-xs text-slate-600">
+                  <strong className="text-[#0F172A]">{featuredCount} produtos em destaque</strong> seleccionados para si no Armazém DUM
                 </span>
               </div>
             )}
@@ -452,13 +452,13 @@ function ProdutosCatalogContent() {
 
             {filteredProducts.length > visibleCount && (
               <div className="mt-12 text-center flex flex-col items-center gap-3">
-                <p className="text-xs text-[#64748B]">
+                <p className="text-xs text-slate-500">
                   A exibir <strong>{visibleCount}</strong> de <strong>{filteredProducts.length}</strong> produtos
                 </p>
                 <button
                   type="button"
                   onClick={() => setVisibleCount((prev) => Math.min(prev + 24, filteredProducts.length))}
-                  className="px-8 py-3.5 rounded-full bg-[#0066FF] hover:bg-[#0052CC] text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] cursor-pointer"
+                  className="px-8 py-3 rounded-full bg-[#1D4ED8] hover:bg-[#1E40AF] text-white font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
                 >
                   Carregar Mais Produtos ({filteredProducts.length - visibleCount} restantes)
                 </button>
@@ -466,18 +466,18 @@ function ProdutosCatalogContent() {
             )}
           </>
         ) : (
-          <div className="text-center py-20 rounded-3xl border border-[#0B1B3A]/10 bg-[#F8FAFF] max-w-lg mx-auto p-8 shadow-sm">
-            <div className="w-16 h-16 rounded-2xl bg-[#0066FF]/10 flex items-center justify-center mx-auto mb-4 text-[#0066FF]">
-              <Package className="w-8 h-8" />
+          <div className="text-center py-16 rounded-2xl border border-slate-200 bg-slate-50 max-w-lg mx-auto p-8 shadow-2xs">
+            <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-4 text-[#1D4ED8]">
+              <Package className="w-7 h-7" />
             </div>
-            <h3 className="text-lg font-bold text-[#0B1B3A] mb-2">Nenhum produto encontrado</h3>
-            <p className="text-sm text-[#64748B] mb-6 font-light leading-relaxed">
+            <h3 className="text-base font-bold text-[#0F172A] mb-1.5">Nenhum produto encontrado</h3>
+            <p className="text-xs text-slate-500 mb-5 font-light leading-relaxed">
               Não encontrámos nenhum produto que corresponda aos filtros aplicados. Experimente pesquisar por outra marca ou categoria.
             </p>
             <button
               type="button"
               onClick={handleResetFilters}
-              className="px-6 py-3 rounded-full bg-[#0066FF] hover:bg-[#0052CC] text-white text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all"
+              className="px-6 py-2.5 rounded-full bg-[#1D4ED8] hover:bg-[#1E40AF] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
             >
               Ver Todos os {products.length} Produtos
             </button>
@@ -499,7 +499,7 @@ export default function ProdutosPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen pt-40 text-center">
-        <p className="text-[#0066FF] font-semibold text-base animate-pulse">Carregando catálogo DUM...</p>
+        <p className="text-[#1D4ED8] font-semibold text-sm animate-pulse">Carregando catálogo DUM...</p>
       </div>
     }>
       <ProdutosCatalogContent />

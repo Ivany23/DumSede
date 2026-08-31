@@ -15,8 +15,7 @@ interface MagneticButtonProps {
 }
 
 /**
- * Magnetic button using CSS transitions instead of framer-motion springs.
- * Same visual pull effect with zero JS animation library overhead.
+ * Magnetic button using CSS transitions for high-performance micro-interactions.
  */
 export const MagneticButton: React.FC<MagneticButtonProps> = ({
   children,
@@ -40,8 +39,7 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
     const distanceX = clientX - centerX;
     const distanceY = clientY - centerY;
 
-    // Magnetic pull factor
-    setPosition({ x: distanceX * 0.28, y: distanceY * 0.28 });
+    setPosition({ x: distanceX * 0.22, y: distanceY * 0.22 });
   }, []);
 
   const handleMouseLeave = useCallback(() => {
@@ -49,20 +47,20 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   }, []);
 
   const sizeClasses = {
-    sm: 'px-5 py-2.5 text-xs font-medium tracking-wider',
-    md: 'px-7 py-3.5 text-sm font-semibold tracking-wider',
-    lg: 'px-9 py-4 text-base font-semibold tracking-wide',
+    sm: 'px-4 py-2 text-xs font-semibold tracking-wider',
+    md: 'px-6 py-3 text-xs sm:text-sm font-semibold tracking-wider',
+    lg: 'px-8 py-3.5 text-sm sm:text-base font-semibold tracking-wide',
   };
 
   const variantClasses = {
     primary:
-      'bg-gradient-to-r from-[#0066FF] via-[#0052CC] to-[#1E40AF] text-[#FFFFFF] shadow-[0_0_20px_rgba(0,102,255,0.35)] hover:shadow-[0_0_30px_rgba(0,102,255,0.55)] border border-[#93C5FD]/40 font-bold',
+      'bg-[#1D4ED8] hover:bg-[#1E40AF] text-white shadow-md hover:shadow-lg border border-blue-500/30 font-bold',
     secondary:
-      'bg-[#0066FF]/90 hover:bg-[#0052CC] text-[#FFFFFF] border border-[#93C5FD]/40 shadow-[0_4px_20px_rgba(0,102,255,0.35)]',
+      'bg-slate-100 hover:bg-slate-200 text-[#0F172A] border border-slate-200 shadow-2xs font-semibold',
     outline:
-      'bg-transparent border border-[#0052CC]/50 text-[#0066FF] hover:bg-[#0052CC]/10 hover:border-[#0066FF]',
+      'bg-transparent border border-[#1D4ED8] text-[#1D4ED8] hover:bg-blue-50',
     glass:
-      'glass-panel text-[#0B1B3A] hover:bg-[#0066FF]/40 border-[#0066FF]/25 hover:border-[#0066FF]/60',
+      'bg-white/90 hover:bg-white text-[#0F172A] border border-slate-200 shadow-sm hover:border-slate-300',
   };
 
   const content = (
@@ -72,17 +70,14 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
       onMouseLeave={handleMouseLeave}
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`,
-        transition: 'transform 0.25s cubic-bezier(0.23, 1, 0.32, 1)',
+        transition: 'transform 0.2s cubic-bezier(0.23, 1, 0.32, 1)',
       }}
-      className={`relative inline-flex items-center justify-center gap-3 rounded-full uppercase transition-all duration-300 group overflow-hidden select-none cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      className={`relative inline-flex items-center justify-center gap-2.5 rounded-full uppercase transition-all duration-200 group overflow-hidden select-none cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
     >
-      {/* Specular glare shine effect */}
-      <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
-      
-      <span className="relative z-10 flex items-center gap-2.5">
+      <span className="relative z-10 flex items-center gap-2">
         {children}
         {icon && (
-          <span className="transition-transform duration-300 group-hover:translate-x-1">
+          <span className="transition-transform duration-200 group-hover:translate-x-0.5">
             {icon}
           </span>
         )}

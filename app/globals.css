@@ -2,47 +2,34 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* Fonts loaded via next/font in layout.tsx — no render-blocking external requests */
+/* Fonts loaded via next/font in layout.tsx — zero render-blocking external requests */
 
 :root {
-  /* Font variables are set via next/font CSS variable injection */
-
   --background: #FFFFFF;
-  --foreground: #0B1B3A;
+  --foreground: #0F172A;
 
-  --color-primary: #0066FF;
-  --color-primary-hover: #0052CC;
-  --color-primary-dark: #003D99;
+  --color-primary: #1D4ED8;
+  --color-primary-hover: #1E40AF;
+  --color-primary-dark: #0B2545;
 
   --surface: #FFFFFF;
-  --surface-soft: #F0F7FF;
-  --surface-tint: #EAF1FF;
-  --surface-deep: #DCEBFF;
+  --surface-soft: #F8FAFC;
+  --surface-tint: #EFF6FF;
+  --surface-deep: #0B2545;
 
-  --color-text-primary: #0B1B3A;
+  --color-text-primary: #0F172A;
   --color-text-secondary: #475569;
   --color-text-light: #64748B;
 
-  --color-success: #22C55E;
-  --color-error: #FF4444;
-  --color-warning: #FF9800;
-  --color-info: #0066FF;
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  --color-info: #0284C7;
   --color-muted: #64748B;
 
-  --color-mercearia: #7CB342;
-  --color-bebidas: #0066FF;
-  --color-laticinios: #FF8C00;
-  --color-limpeza: #06B6D4;
-  --color-snacks: #DC2626;
-  --color-infantil: #A855F7;
-
-  --color-sky: #3B82F6;
-  --color-sky-light: #93C5FD;
-  --color-sky-soft: #BFDBFE;
-
-  --glass-background: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(0, 102, 255, 0.14);
-  --glass-border-hover: rgba(0, 102, 255, 0.3);
+  --glass-background: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(226, 232, 240, 0.9);
+  --glass-border-hover: rgba(147, 197, 253, 0.7);
 }
 
 * {
@@ -90,62 +77,55 @@ html.lenis, html.lenis body {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #EAF1FF;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0066FF;
+  background: #94A3B8;
   border-radius: 4px;
-  border: 1px solid rgba(0, 102, 255, 0.25);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0052CC;
+  background: #1D4ED8;
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.62);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 20px -2px rgba(11, 37, 69, 0.05);
 }
 
 .glass-panel-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-panel-hover:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(0, 102, 255, 0.4);
-  box-shadow: 0 20px 45px -12px rgba(0, 102, 255, 0.3), 0 0 24px rgba(0, 102, 255, 0.15);
+  background: #FFFFFF;
+  border-color: rgba(147, 197, 253, 0.8);
+  box-shadow: 0 12px 28px -4px rgba(11, 37, 69, 0.12), 0 0 0 1px rgba(29, 78, 216, 0.1);
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.09);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 .text-gold-gradient {
-  background: linear-gradient(135deg, #60A5FA 0%, #0066FF 45%, #003D99 100%);
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 60%, #B45309 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-emerald-gradient {
-  background: linear-gradient(135deg, #A7F3D0 0%, #34D399 50%, #059669 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-silver-gradient {
-  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 60%, #94A3B8 100%);
+.text-blue-gradient {
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 60%, #0B2545 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -164,24 +144,16 @@ html.lenis, html.lenis body {
 .shimmer-badge {
   background: linear-gradient(
     90deg,
-    rgba(0, 102, 255, 0.1) 0%,
-    rgba(0, 102, 255, 0.3) 50%,
-    rgba(0, 102, 255, 0.1) 100%
+    rgba(29, 78, 216, 0.08) 0%,
+    rgba(29, 78, 216, 0.2) 50%,
+    rgba(29, 78, 216, 0.08) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 3s infinite linear;
 }
 
-.bg-ambient-emerald {
-  background: radial-gradient(circle at 50% 30%, rgba(0, 102, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
-}
-
-.bg-ambient-gold {
-  background: radial-gradient(circle at 50% 50%, rgba(147, 197, 253, 0.35) 0%, rgba(255, 255, 255, 0) 70%);
-}
-
 ::selection {
-  background: #0066FF;
+  background: #1D4ED8;
   color: #FFFFFF;
 }
 
@@ -200,7 +172,7 @@ nextjs-portal,
   pointer-events: none !important;
 }
 
-/* Seamless Studio White Product Images - Eliminates screenshot/cutout lines */
+/* Seamless Studio White Product Images - Clean, sharp presentation */
 .product-image-studio {
   background-color: #FFFFFF !important;
   mix-blend-mode: multiply;

@@ -5,7 +5,7 @@ import { categories } from '@/data/categories';
 
 export default function CategoriasPage() {
   return (
-    <div className="min-h-screen bg-[#FFFFFF] pt-32 pb-24 px-6 sm:px-8">
+    <div className="min-h-screen bg-white pt-28 pb-24 px-6 sm:px-8">
       <div className="max-w-7xl mx-auto">
         <SectionTitle
           badge="Secções do Armazém"

@@ -16,7 +16,6 @@ import {
   Layers,
 } from 'lucide-react';
 import { Category } from '@/types';
-import { GlassCard3D } from './GlassCard3D';
 
 interface CategoryCardProps {
   category: Category;
@@ -24,90 +23,85 @@ interface CategoryCardProps {
 }
 
 const iconMap: Record<string, React.ReactNode> = {
-  ShoppingBag: <ShoppingBag className="w-8 h-8" />,
-  Wine: <Wine className="w-8 h-8" />,
-  Milk: <Milk className="w-8 h-8" />,
-  Snowflake: <Snowflake className="w-8 h-8" />,
-  Sparkles: <Sparkles className="w-8 h-8" />,
-  ShieldCheck: <ShieldCheck className="w-8 h-8" />,
-  Cookie: <Cookie className="w-8 h-8" />,
-  HeartHandshake: <HeartHandshake className="w-8 h-8" />,
+  ShoppingBag: <ShoppingBag className="w-6 h-6" />,
+  Wine: <Wine className="w-6 h-6" />,
+  Milk: <Milk className="w-6 h-6" />,
+  Snowflake: <Snowflake className="w-6 h-6" />,
+  Sparkles: <Sparkles className="w-6 h-6" />,
+  ShieldCheck: <ShieldCheck className="w-6 h-6" />,
+  Cookie: <Cookie className="w-6 h-6" />,
+  HeartHandshake: <HeartHandshake className="w-6 h-6" />,
+};
+
+const categoryAccentColors: Record<string, { iconBg: string; text: string; border: string }> = {
+  mercearia: { iconBg: 'bg-emerald-50 text-emerald-700', text: 'text-emerald-700', border: 'border-emerald-200' },
+  bebidas: { iconBg: 'bg-blue-50 text-blue-700', text: 'text-blue-700', border: 'border-blue-200' },
+  laticinios: { iconBg: 'bg-amber-50 text-amber-700', text: 'text-amber-700', border: 'border-amber-200' },
+  congelados: { iconBg: 'bg-sky-50 text-sky-700', text: 'text-sky-700', border: 'border-sky-200' },
+  higiene: { iconBg: 'bg-indigo-50 text-indigo-700', text: 'text-indigo-700', border: 'border-indigo-200' },
+  limpeza: { iconBg: 'bg-teal-50 text-teal-700', text: 'text-teal-700', border: 'border-teal-200' },
+  snacks: { iconBg: 'bg-rose-50 text-rose-700', text: 'text-rose-700', border: 'border-rose-200' },
+  infantil: { iconBg: 'bg-purple-50 text-purple-700', text: 'text-purple-700', border: 'border-purple-200' },
 };
 
 export const CategoryCard: React.FC<CategoryCardProps> = ({ category, index = 0 }) => {
-  const icon = iconMap[category.iconName] || <Layers className="w-8 h-8" />;
+  const icon = iconMap[category.iconName] || <Layers className="w-6 h-6" />;
+  const theme = categoryAccentColors[category.slug] || {
+    iconBg: 'bg-blue-50 text-[#1D4ED8]',
+    text: 'text-[#1D4ED8]',
+    border: 'border-blue-200',
+  };
 
   return (
-    <Link href={`/categorias/${category.slug}`} className="block h-full">
-      <GlassCard3D className="h-full min-h-[360px]" intensity={12}>
-        <div className="relative w-full h-full p-6 flex flex-col justify-between overflow-hidden group">
-          {/* Background Stage */}
-          <div className="absolute inset-0 z-0 overflow-hidden bg-white">
-            {category.image ? (
-              <Image
-                src={category.image}
-                alt={category.name}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110 filter brightness-[0.45] group-hover:brightness-[0.6]"
-              />
-            ) : (
-              <div className="absolute inset-0">
-                {/* Radial Glow and geometric accent */}
-                <div className="absolute -top-10 -right-10 w-48 h-48 bg-dum-primary/5 rounded-full blur-2xl group-hover:bg-dum-primary/10 transition-colors duration-500" />
-                <div className="absolute bottom-10 left-6 w-32 h-32 bg-dum-primary/5 rounded-full blur-xl" />
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,102,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,102,255,0.03)_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-20" />
-              </div>
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-white/20 to-transparent" />
-            <div className="absolute inset-0 bg-dum-primary/5 mix-blend-soft-light" />
+    <Link href={`/categorias/${category.slug}`} className="block h-full group">
+      <div className="relative w-full h-full min-h-[350px] p-6 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-blue-300 transition-all duration-200 flex flex-col justify-between overflow-hidden">
+        {/* Background Subtle Accent */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-full blur-2xl pointer-events-none group-hover:bg-blue-50/50 transition-colors" />
+
+        {/* Top Tag, Icon & Number */}
+        <div className="relative z-10 flex items-center justify-between">
+          <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${theme.iconBg} ${theme.border} shadow-2xs group-hover:scale-105 transition-transform`}>
+            {icon}
           </div>
-
-          {/* Top Tag, Icon & Number */}
-          <div className="relative z-10 flex items-center justify-between">
-            <div className="w-12 h-12 rounded-xl bg-white/70 border border-[#0B1B3A]/10 flex items-center justify-center text-dum-primary shadow-md group-hover:scale-110 group-hover:border-dum-primary/60 transition-all duration-300">
-              {icon}
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full bg-white/70 border border-[#0B1B3A]/10 text-dum-primary text-[11px] font-semibold tracking-wider backdrop-blur-md">
-                {category.itemCount}
-              </span>
-              <span className="text-xs font-mono text-[#94A3B8]">
-                0{index + 1}
-              </span>
-            </div>
-          </div>
-
-          {/* Bottom Content */}
-          <div className="relative z-10 pt-12">
-            <div className="flex items-center justify-between gap-2 mb-2">
-              <h3 className="text-xl font-bold text-dum-text-primary group-hover:text-dum-primary transition-colors duration-300">
-                {category.name}
-              </h3>
-              <div className="w-9 h-9 rounded-full bg-white/70 border border-[#0B1B3A]/10 flex items-center justify-center text-dum-primary group-hover:bg-dum-primary group-hover:text-white transition-all duration-300 shrink-0 transform group-hover:rotate-45">
-                <ArrowUpRight className="w-4 h-4" />
-              </div>
-            </div>
-
-            <p className="text-sm text-dum-text-secondary line-clamp-2 mb-4 font-light leading-relaxed">
-              {category.shortDescription}
-            </p>
-
-            {/* Highlights pills */}
-            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#0B1B3A]/10">
-              {category.highlights.slice(0, 2).map((h, i) => (
-                <span
-                  key={i}
-                  className="text-[11px] text-[#1E293B] bg-white/70 px-2.5 py-0.5 rounded-md border border-[#0B1B3A]/10"
-                >
-                  {h}
-                </span>
-              ))}
-            </div>
+          
+          <div className="flex items-center gap-2">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-[11px] font-semibold tracking-wider">
+              {category.itemCount}
+            </span>
+            <span className="text-xs font-mono text-slate-400">
+              0{index + 1}
+            </span>
           </div>
         </div>
-      </GlassCard3D>
+
+        {/* Bottom Content */}
+        <div className="relative z-10 pt-8">
+          <div className="flex items-center justify-between gap-2 mb-2">
+            <h3 className="text-lg font-bold text-[#0F172A] group-hover:text-[#1D4ED8] transition-colors">
+              {category.name}
+            </h3>
+            <div className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-[#1D4ED8] group-hover:text-white group-hover:border-[#1D4ED8] transition-all shrink-0">
+              <ArrowUpRight className="w-4 h-4" />
+            </div>
+          </div>
+
+          <p className="text-xs text-slate-600 line-clamp-2 mb-4 font-light leading-relaxed">
+            {category.shortDescription}
+          </p>
+
+          {/* Highlights pills */}
+          <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+            {category.highlights.slice(0, 2).map((h, i) => (
+              <span
+                key={i}
+                className="text-[10px] text-slate-600 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-200/80 font-medium"
+              >
+                {h}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
     </Link>
   );
 };
