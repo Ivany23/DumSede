@@ -2,12 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+/* Fonts loaded via next/font in layout.tsx — no render-blocking external requests */
 
 :root {
-  --font-outfit: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  /* Font variables are set via next/font CSS variable injection */
 
   --background: #FFFFFF;
   --foreground: #0B1B3A;

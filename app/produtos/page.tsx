@@ -131,11 +131,13 @@ function ProdutosCatalogContent() {
   const [selectedCategory, setSelectedCategory] = useState(urlCategory);
   const [selectedBrand, setSelectedBrand] = useState(urlBrand);
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(24);
 
   useEffect(() => {
     setSearchTerm(urlQuery);
     setSelectedCategory(urlCategory);
     setSelectedBrand(urlBrand);
+    setVisibleCount(24);
   }, [urlQuery, urlBrand, urlCategory]);
 
   const availableBrands = useMemo(() => {
@@ -207,17 +209,20 @@ function ProdutosCatalogContent() {
 
   const handleSearchChange = (val: string) => {
     setSearchTerm(val);
+    setVisibleCount(24);
     updateUrlFilters(val, selectedCategory, selectedBrand);
   };
 
   const handleCategorySelect = (catSlug: string) => {
     setSelectedCategory(catSlug);
+    setVisibleCount(24);
     updateUrlFilters(searchTerm, catSlug, selectedBrand);
   };
 
   const handleBrandSelect = (brandName: string) => {
     setSelectedBrand(brandName);
     setShowBrandDropdown(false);
+    setVisibleCount(24);
     updateUrlFilters(searchTerm, selectedCategory, brandName);
   };
 
@@ -226,6 +231,7 @@ function ProdutosCatalogContent() {
     setSelectedCategory('todas');
     setSelectedBrand('todas');
     setShowBrandDropdown(false);
+    setVisibleCount(24);
     router.replace('/produtos', { scroll: false });
   };
 
@@ -439,10 +445,25 @@ function ProdutosCatalogContent() {
             )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProducts.map((product) => (
+              {filteredProducts.slice(0, visibleCount).map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
+
+            {filteredProducts.length > visibleCount && (
+              <div className="mt-12 text-center flex flex-col items-center gap-3">
+                <p className="text-xs text-[#64748B]">
+                  A exibir <strong>{visibleCount}</strong> de <strong>{filteredProducts.length}</strong> produtos
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setVisibleCount((prev) => Math.min(prev + 24, filteredProducts.length))}
+                  className="px-8 py-3.5 rounded-full bg-[#0066FF] hover:bg-[#0052CC] text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] cursor-pointer"
+                >
+                  Carregar Mais Produtos ({filteredProducts.length - visibleCount} restantes)
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <div className="text-center py-20 rounded-3xl border border-[#0B1B3A]/10 bg-[#F8FAFF] max-w-lg mx-auto p-8 shadow-sm">

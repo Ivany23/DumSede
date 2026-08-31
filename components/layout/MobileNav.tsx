@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { X, MapPin, Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import { StoreStatus } from '@/components/ui/StoreStatus';
 
@@ -20,7 +20,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
@@ -53,7 +53,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
             </div>
 
             {navLinks.map((link, idx) => (
-              <motion.div
+              <m.div
                 key={link.href}
                 initial={{ opacity: 0, x: -25 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -67,7 +67,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                   <span>{link.label}</span>
                   <ArrowRight className="w-5 h-5 opacity-40 group-hover:opacity-100 group-hover:translate-x-2 transition-all text-[#0066FF]" />
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
@@ -92,7 +92,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
               <span>Contactar pelo WhatsApp</span>
             </a>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );
