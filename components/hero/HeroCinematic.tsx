@@ -57,7 +57,7 @@ export const HeroCinematic: React.FC = () => {
         >
           <span className="px-4 py-1.5 rounded-full border border-blue-400/30 bg-blue-950/60 text-blue-200 text-xs font-semibold uppercase tracking-[0.2em] backdrop-blur-md flex items-center gap-2 shadow-lg">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            DUM Sociedade Lda &bull; Armazém Comercial
+            DUM Sociedade Lda &bull; Sede & Armazém Central
           </span>
           <StoreStatus />
         </m.div>
