@@ -154,8 +154,8 @@ export const HeroCinematic: React.FC = () => {
               <MapPin className="w-4 h-4" />
             </div>
             <div>
-              <span className="text-xs font-bold text-white block">Luanda / Angola</span>
-              <span className="text-[11px] text-slate-300">Fácil Acesso & Parque</span>
+              <span className="text-xs font-bold text-white block">Maputo / Moçambique</span>
+              <span className="text-[11px] text-slate-300">DUM Sede &bull; Fácil Acesso</span>
             </div>
           </div>
         </m.div>

@@ -39,9 +39,10 @@ export const metadata: Metadata = {
   keywords: [
     'DUM Sociedade Lda',
     'Armazém DUM',
-    'Supermercado Luanda',
+    'DUM Sede',
+    'Supermercado Maputo',
     'Produtos Alimentares',
-    'Bebidas Angola',
+    'Bebidas Moçambique',
     'Mercearia & Essenciais',
     'Laticínios e Frescos',
     'Congelados',
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     description:
       'Uma experiência de compra moderna, acolhedora e com variedade premium para famílias e empresas.',
     type: 'website',
-    locale: 'pt_AO',
+    locale: 'pt_MZ',
   },
 };
 

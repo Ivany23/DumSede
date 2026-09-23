@@ -78,7 +78,7 @@ export default function ContactoPage() {
                   <div>
                     <span className="text-xs text-slate-500 block mb-0.5">Sede & Armazém</span>
                     <p className="text-sm text-slate-700 font-medium">
-                      Complexo Comercial & Armazenista, Luanda - Angola
+                      DUM Sede, Maputo - Moçambique
                     </p>
                   </div>
                 </div>
