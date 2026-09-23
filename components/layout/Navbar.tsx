@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, MapPin, Search, X } from 'lucide-react';
 import { MagneticButton } from '@/components/ui/MagneticButton';
@@ -43,26 +44,20 @@ export const Navbar: React.FC = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'py-3 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80'
-            : 'py-4 bg-white/80 backdrop-blur-sm border-b border-slate-100'
+            ? 'py-2.5 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80'
+            : 'py-3.5 bg-white/85 backdrop-blur-sm border-b border-slate-100'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0B2545] via-[#1D4ED8] to-[#1E3A8A] border border-blue-400/30 flex items-center justify-center shadow-sm group-hover:scale-105 transition-all duration-300">
-              <span className="text-xl font-serif font-black text-white tracking-tighter">
-                D
-              </span>
-            </div>
-
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-wider text-[#0F172A] group-hover:text-[#1D4ED8] transition-colors font-serif">
-                DUM
-              </span>
-              <span className="text-[10px] tracking-[0.25em] text-[#1D4ED8] uppercase font-sans font-semibold -mt-1">
-                Sociedade Lda
-              </span>
-            </div>
+          <Link href="/" className="flex items-center group py-0.5" aria-label="DUM Sociedade Lda - Início">
+            <Image
+              src="/images/logo/logo.png"
+              alt="DUM Sociedade Lda"
+              width={160}
+              height={55}
+              priority
+              className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-slate-50 border border-slate-200/80">

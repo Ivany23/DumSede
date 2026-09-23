@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Phone, Clock, ArrowUpRight, ShieldCheck } from 'lucide-react';
 import { StoreStatus } from '@/components/ui/StoreStatus';
 
@@ -18,21 +19,15 @@ export const Footer: React.FC = () => {
           {/* Col 1 & 2: Brand & Purpose */}
           <div className="lg:col-span-2 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-3.5 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#1D4ED8] to-[#0B2545] border border-blue-400/40 flex items-center justify-center shadow-sm">
-                  <span className="text-2xl font-serif font-black text-white">
-                    D
-                  </span>
-                </div>
-                <div>
-                  <span className="text-2xl font-bold tracking-wider text-white font-serif block">
-                    DUM
-                  </span>
-                  <span className="text-xs tracking-[0.25em] text-blue-400 uppercase font-semibold">
-                    Sociedade Lda
-                  </span>
-                </div>
-              </div>
+              <Link href="/" className="inline-block mb-5 group" aria-label="DUM Sociedade Lda - Página Inicial">
+                <Image
+                  src="/images/logo/logo-white.png"
+                  alt="DUM Sociedade Lda"
+                  width={180}
+                  height={65}
+                  className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              </Link>
 
               <p className="text-sm text-slate-400 leading-relaxed max-w-md font-light mb-6">
                 Armazém comercial de referência para compras presenciais. Variedade, autenticidade garantida e atendimento acolhedor para famílias e empresas.
